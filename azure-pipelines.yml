@@ -63,19 +63,19 @@ stages:
     pool:
       name: 'default'
     environment: Development
-    strategy:
-      runOnce:
-        deploy:
-          steps:
+    # strategy:
+      # runOnce:
+      #   deploy:
+      #     steps:
 
-          - task: AzureWebApp@1
-            displayName: 'Deploy App Service'
-            inputs:
-              azureSubscription: 'Free Trial (98c52503-d054-4ae0-90a9-92746ad3a6d6)'
-              appType: 'webAppLinux'
-              appName: 'angularwithazure'
-              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-              runtimeStack: 'NODE|16-lts'
+          # - task: AzureWebApp@1
+          #   displayName: 'Deploy App Service'
+          #   inputs:
+          #     azureSubscription: 'Free Trial (98c52503-d054-4ae0-90a9-92746ad3a6d6)'
+          #     appType: 'webAppLinux'
+          #     appName: 'angularwithazure'
+          #     package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+          #     runtimeStack: 'NODE|16-lts'
 
 - stage: Acceptance
   dependsOn: [ Development ]
